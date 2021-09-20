@@ -8,7 +8,7 @@
                 <a-col :span="24">
                     <a-form @submit="handleSubmit">
                         <a-form-item label="姓名">
-                            <a-input
+                            <a-input v-model="formData.name"
                                 v-decorator="[
                                     'username',
                                     {
@@ -24,7 +24,7 @@
                             />
                         </a-form-item>
                         <a-form-item label="性别">
-                            <a-input
+                            <a-input v-model="formData.gender"
                                 v-decorator="[
                                     'gender',
                                     {
@@ -40,7 +40,7 @@
                             />
                         </a-form-item>
                         <a-form-item label="年龄">
-                            <a-input
+                            <a-input v-model="formData.age"
                                 v-decorator="[
                                     'age',
                                     {
@@ -70,7 +70,7 @@
                             />
                         </a-form-item> -->
                         <a-form-item label="症状描述">
-                            <a-textarea
+                            <a-textarea v-model="formData.description"
                                 v-decorator="['more']"
                                 placeholder="Basic usage"
                                 :rows="4"
@@ -146,6 +146,12 @@ export default {
     data() {
         return {
             forumList: [],
+            formData: {
+                name: '',
+                gender: '',
+                age: '',
+                description: ''
+            },
             // optionList: [
             //     { name: "消化系统及代谢药", icon: "tag", color: "#E64463" },
             //     { name: "心血和造学系统药物", icon: "tag" },
@@ -181,7 +187,14 @@ export default {
         };
     },
     methods: {
-        handleSubmit(data) {},
+        handleSubmit(e) {
+            e.preventDefault();
+            console.log(this.formData)
+            this.$axios({
+                url: 'http://175.27.189.130:5000/forum/question',
+                method: 'get'
+            })
+        },
         addCommont(){
 
         }

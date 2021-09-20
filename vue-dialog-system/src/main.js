@@ -8,6 +8,7 @@ import axios from 'axios'
 import VueAxios from "vue-axios";
  
 Vue.use(VueAxios, axios)
+Vue.prototype.$axios = axios
 import MyHeader from '@/components/myHeader/myHeader.vue'
 import MyFooter from '@/components/myFooter/myFooter.vue'
 import myLoginForm from '@/components/myLoginForm/myLoginForm.vue'
