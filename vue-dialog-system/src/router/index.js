@@ -40,6 +40,12 @@ const routes = [
         name: 'Forum',
         component: () => import('@/views/forum/forum.vue'),
         meta: {title: '论坛管理'}
+    },
+    {
+        path: '/baidu',
+        name: 'Baidu',
+        component: () => import('@/views/baidu/baidu.vue'),
+        meta: {title: '药物咨询'}
     }
 ]
 

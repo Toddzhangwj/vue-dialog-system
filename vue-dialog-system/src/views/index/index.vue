@@ -114,7 +114,13 @@ export default {
           title: "药物咨询",
           subTitle: "Drug consultation",
           imageUrl: testUrl,
-          link: "/treatment",
+          link: "/baidu",
+        },
+        {
+          title: "论坛",
+          subTitle: "Forum",
+          imageUrl: testUrl,
+          link: "/forum",
         },
       ],
     };
