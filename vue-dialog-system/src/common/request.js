@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://175.27.189.130:5000/"; //请求基本路径
+axios.defaults.baseURL = "/api"; //请求基本路径
 axios.defaults.headers.post["Content-Type"] =
 	"application/x-www-form-urlencoded;charset=UTF-8"; // post请求头的设置
 axios.defaults.timeout = 10000; // 设置请求超时

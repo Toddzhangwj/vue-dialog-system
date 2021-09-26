@@ -17,7 +17,7 @@
                                     ]"
                                     :key="index"
                                 >
-                                    <div class="msg">{{ item.msg }}</div>
+                                    <div class="msg" v-html="item.msg">{{ item.msg }}</div>
                                 </li>
                             </template>
                         </ul>
@@ -211,9 +211,10 @@ export default {
                     params: data
                 }).then((res)=>{
                     console.log(res)
+                    var data = res.data.ans.replace(/\n/g,'<br/>');
                     this.messageList.push({
                         type: "other",
-                        msg: res.data.ans,
+                        msg: data,
                     });
                     this.$nextTick(() => {
                         this.$refs["messageRef"].scrollTop =
@@ -224,7 +225,9 @@ export default {
         },
     },
     mounted(){
-         this.$nextTick(() => {
+        // this.a = this.a.replace(/\n/g,'<br/>');
+        // console.log(this.a.replace(/\n/g,'<br/>'));
+        this.$nextTick(() => {
             this.$refs["messageRef"].scrollTop =
                 this.$refs["messageRef"].scrollHeight;
         });
@@ -298,6 +301,7 @@ export default {
                     }
                     .msg {
                         width: max-content;
+                        max-width:500px;
                         background-color: #c5c5c5;
                         padding: 10px;
                         border-radius: 8px;
